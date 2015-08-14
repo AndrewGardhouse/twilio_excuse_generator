@@ -1,0 +1,25 @@
+{
+  "name": "get_me_outta_here",
+  "version": "1.0.0",
+  "description": "Sends users an sms at a specified time via twilio",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "Twilio",
+    "Node",
+    "RantJS"
+  ],
+  "author": "Andrew Gardhouse",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "express": "^4.13.1",
+    "moment": "^2.10.5",
+    "node-schedule": "^0.2.9",
+    "nodemon": "^1.4.1",
+    "rantjs": "^0.9.7",
+    "twilio": "^2.2.1"
+  }
+}
