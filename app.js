@@ -56,7 +56,7 @@ app.post('/sms', function(req, res) {
     });
   } 
    else {
-    resp.message("Sorry, we don't quite understand what you were trying to say.");
+    resp.message("Sorry, we don't quite understand what you were trying to say. Text 'Get me outta here!' to learn more.");
   }
 
   // Render the TwiML response as XML
