@@ -23,7 +23,7 @@ app.post('/sms', function(req, res) {
 
   if (userText.match(/^(get me (outta||out of) here(!+)?)$/)) {
     resp.message("Hello, and thank you for choosing Get Me Outta Here as the pilot to your escape pod from social awkwardness or whatever uncomfortable situation life has thrown at you. Our crack team of escape artists are more than happy to help you, we just need a couple pieces of information to complete our job. If you wish to receive a tailor made excuse this moment, please text 'Get me outta here now!' or if you want to receive one in the not too distant future, please text us the time (in minutes) in which you want get out of the sticky situation (ie: 'Get me outta here in 15 minutes')");
-  } else if (userText === "get me outta here now!") {
+  } else if (userText.match(/^(get me (outta||out of) here now(!+)?)$/)) {
     resp.message(rant("<greet>, it's <firstname>, <firstname>'s <noun> has been <verb ed>! Hop in the <noun vehicle> and get to the <place> ASAP!!!"));
   } else if (userText.match(/(get me (outta||out of) here in \d+ minute(s)? ?(!+)?)/) ) {
     
