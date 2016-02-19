@@ -1,8 +1,9 @@
 var express = require('express');
 var path = require("path");
 var bodyParser = require('body-parser');
+var api = require('./api_keys')
 var twilio = require('twilio');
-var client = twilio('AC5e649ec620d49f0106099276d5a30b74', '25263c144590e1bdb59176dcd043a065')
+var client = twilio(api.sid, api.token)
 var schedule = require('node-schedule');
 var moment = require('moment');
 var rant = require('rantjs');
@@ -27,14 +28,13 @@ app.post('/sms', function(req, res) {
     resp.message(rant("<greet>, it's <firstname>, <firstname>'s <noun> has been <verb ed>! Hop in the <noun vehicle> and get to the <place> ASAP!!!"));
   } else if (userText.match(/(get me (outta||out of) here in \d+ minute(s)? ?(!+)?)/) ) {
     
-    // pulls the minutes from the text 
+    // gets the minutes from the text 
     var minutes = userText.match(/\d+/)[0];
 
-    // caluculates the exact time when to send a user a text
+    // caluculates when to send a user a text
     var timeToLeave = moment().add(parseInt(minutes), 'm')._d;
 
     if (minutes == 1) {
-      console.log("WOrking")
       resp.message("You will recieve a message in 1 minute");
     } else {
       resp.message("You will recieve a message in " + minutes + " minutes");
